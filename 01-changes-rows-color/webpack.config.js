@@ -21,4 +21,14 @@ module.exports = {
     },
     // 在webpack运行是，会加载并调用这些插件
     plugins:[htmlPlugin],
+    devServer:{
+        open:true,
+        host:'127.0.0.1',
+        port:8080
+    },
+    module:{
+        rules:[
+            { test: /\.css$/,use:['style-loader','css-loader']},
+        ]
+    }
 }
