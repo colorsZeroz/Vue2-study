@@ -30,7 +30,9 @@ module.exports = {
         rules:[
             { test: /\.css$/,use:['style-loader','css-loader']},
             { test: /\.less$/,use:['style-loader','css-loader','less-loader']},
-            { test: /\.jpg|png|gif$/,use:'url-loader'},
+            { test: /\.jpg|png|gif$/,use:'url-loader?limit=700'},
+            // babel-loader处理高级语法
+            { test: /\.js$/,use:'babel-loader',exclude:/node_modules/},
         ]
     }
 }
