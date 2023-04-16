@@ -10,6 +10,8 @@ const htmlPlugin= new HtmlPlugin({
     filename:'./index.html'
 })
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
 
 module.exports = {
     // development production
@@ -17,10 +19,10 @@ module.exports = {
     entry:path.join(__dirname,'./src/index.js'),
     output:{
         path:path.join(__dirname,'dist'),
-        filename:'bundle.js',
+        filename:'js/bundle.js',
     },
     // 在webpack运行是，会加载并调用这些插件
-    plugins:[htmlPlugin],
+    plugins:[htmlPlugin, new CleanWebpackPlugin()],
     devServer:{
         open:true,
         host:'127.0.0.1',
@@ -30,7 +32,7 @@ module.exports = {
         rules:[
             { test: /\.css$/,use:['style-loader','css-loader']},
             { test: /\.less$/,use:['style-loader','css-loader','less-loader']},
-            { test: /\.jpg|png|gif$/,use:'url-loader?limit=700'},
+            { test: /\.jpg|png|gif$/,use:'url-loader?limit=700&outputPath=images'},
             // babel-loader处理高级语法
             { test: /\.js$/,use:'babel-loader',exclude:/node_modules/},
         ]
