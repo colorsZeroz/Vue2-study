@@ -16,6 +16,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     // development production
     mode:'development',
+    // 在开发调试阶段建议设置devtool
+    // 在发布项目的时候出于安全性考虑建议关闭SourceMap
+    //devtool:'eval-source-map',
+    // 在发布时，设置nosources-source-map或直接关闭
+    devtool:'nosources-source-map',
     entry:path.join(__dirname,'./src/index.js'),
     output:{
         path:path.join(__dirname,'dist'),
