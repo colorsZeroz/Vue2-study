@@ -41,5 +41,10 @@ module.exports = {
             // babel-loader处理高级语法
             { test: /\.js$/,use:'babel-loader',exclude:/node_modules/},
         ]
+    },
+    resolve: {
+        alias:{
+            '@':path.join(__dirname,'./src/')
+        }
     }
 }
